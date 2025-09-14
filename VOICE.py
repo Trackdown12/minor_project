@@ -4,13 +4,14 @@ from datetime import datetime
 class speak:
     def __init__(self):
         self.eng=pyttsx3.init()
+        self.voice=self.eng.getProperty("voices")
+        self.eng.setProperty("rate",195)
+        self.eng.setProperty("voice",self.voice[1].id)#initilize zira's voice(id 1 for zira and o for david)
     
     def talk(self,*args):
         text=" ".join(args)
-        self.voice=self.eng.getProperty("voices")
-        print(self.voice)
-        self.eng.setProperty("rate",195)
-        self.eng.setProperty("voice",self.voice[1].id)#initilize zira's voice(id 1 for zira and o for david)
+        text = text.replace(",", ",  ")
+        text = text.replace(".", ".    ")
         self.eng.say(text)
         self.eng.runAndWait()
     
