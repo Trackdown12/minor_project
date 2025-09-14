@@ -10,9 +10,7 @@ class speak:
         self.voice=self.eng.getProperty("voices")
         print(self.voice)
         self.eng.setProperty("rate",195)
-        self.eng.setProperty("voice",self.voice[2].id)
-        #self.eng.setProperty("rate",195)
-        #self.eng.setProperty("rate",195)
+        self.eng.setProperty("voice",self.voice[1].id)#initilize zira's voice(id 1 for zira and o for david)
         self.eng.say(text)
         self.eng.runAndWait()
     
@@ -26,5 +24,3 @@ class speak:
             self.talk("good evening,time to relax and recharge")
         elif(hr>=22 or hr<4):
             self.talk("good night,see ya later")
-speak().GreetUser()
-speak().talk("hi")        
